@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { TrendingDown, Leaf, Zap, AlertCircle, Star, Lightbulb, Crown, Check, Info, Power, Sun, Droplets, TreePine, BarChart3, Upload, TrendingUp } from "lucide-react";
+import { TrendingDown, Leaf, Zap, AlertCircle, Star, Lightbulb, Crown, Check, Info, Power, Sun, Droplets, TreePine, BarChart3, Upload, TrendingUp, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import { toast as sonnerToast } from "sonner";
 
 const Dashboard = () => {
   const [isProUser, setIsProUser] = useState(false);
@@ -68,10 +69,16 @@ const Dashboard = () => {
   const handleUpgradeToPro = () => {
     setIsProUser(true);
     setShowProDialog(false);
-    toast({
-      title: "Welcome to SmartSave Pro! 🎉",
-      description: "You're now a SmartSave Pro user with access to all premium features.",
+    sonnerToast.success("Welcome to SmartSave Pro! 🎉", {
+      description: "You're now unlocking advanced energy analytics!"
     });
+  };
+
+  const handleDownloadReport = () => {
+    sonnerToast.success("Report downloaded!", {
+      description: "Your energy report has been downloaded as PDF."
+    });
+    // In a real app, this would generate and download a PDF
   };
 
   return (
@@ -107,16 +114,26 @@ const Dashboard = () => {
                   </Tooltip>
                 </p>
               </div>
-              {isProUser && (
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="flex items-center gap-2 bg-gradient-hero text-white px-4 py-2 rounded-full shadow-glow"
+              <div className="flex items-center gap-3">
+                {isProUser && (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="flex items-center gap-2 bg-gradient-hero text-white px-4 py-2 rounded-full shadow-glow"
+                  >
+                    <Crown className="w-5 h-5" />
+                    <span className="font-semibold">Pro Member</span>
+                  </motion.div>
+                )}
+                <Button 
+                  onClick={handleDownloadReport}
+                  variant="outline"
+                  className="gap-2"
                 >
-                  <Crown className="w-5 h-5" />
-                  <span className="font-semibold">Pro Member</span>
-                </motion.div>
-              )}
+                  <Download className="w-4 h-4" />
+                  Download Report
+                </Button>
+              </div>
             </div>
             <p className="text-sm text-muted-foreground/80 bg-muted/30 p-4 rounded-lg border border-border/50">
               💡 <strong>How it works:</strong> Energy score is calculated based on your monthly bill units vs. ideal city average consumption for your household size and appliances. Each unit saved reduces 0.82 kg of CO₂ emissions.
@@ -183,8 +200,11 @@ const Dashboard = () => {
                       </linearGradient>
                     </defs>
                   </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Zap className="w-16 h-16 text-primary animate-pulse" />
+                  <div className="absolute inset-0 flex items-center justify-center flex-col">
+                    <Zap className="w-12 h-12 text-primary animate-pulse mb-2" />
+                    <div className="text-xs font-medium">
+                      {energyScore >= 8 ? "Best" : energyScore >= 6.5 ? "Good" : energyScore >= 5 ? "Average" : "Poor"}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -92,19 +92,19 @@ const Home = () => {
                   <ul className="space-y-4 mb-8">
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Upload electricity bill</span>
+                      <span>Upload one bill (PDF/image)</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Basic energy efficiency score</span>
+                      <span>Get Energy Efficiency Score</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>3 key insights</span>
+                      <span>See appliance inefficiency list</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">Appliance breakdown</span>
+                      <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Behavioral tips & recommendations</span>
                     </li>
                   </ul>
                   
@@ -140,27 +140,27 @@ const Home = () => {
                   <ul className="space-y-4 mb-8">
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Everything in Free</span>
+                      <span><strong>All Free features +</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Detailed appliance breakdown</span>
+                      <span>Forecast next month's bill automatically</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Monthly consumption trends</span>
+                      <span>Get CO₂ savings report for green incentives</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>CO₂ savings calculator</span>
+                      <span>Historical tracking (6 months)</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Ad-free experience</span>
+                      <span>City energy comparison</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Priority support</span>
+                      <span>Carbon reduction analytics</span>
                     </li>
                   </ul>
                   

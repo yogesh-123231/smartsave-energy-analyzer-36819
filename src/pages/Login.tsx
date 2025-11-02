@@ -109,6 +109,15 @@ const Login = () => {
         >
           Join thousands of users saving energy and money
         </motion.p>
+        
+        <motion.footer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="text-center text-xs text-muted-foreground mt-8"
+        >
+          SmartSave © 2025 | Powered by CleanTech Vision
+        </motion.footer>
       </motion.div>
     </div>
   );

@@ -51,9 +51,15 @@ const Upload = () => {
     ));
   };
 
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+
   const handleAnalyze = () => {
+    setIsAnalyzing(true);
     toast.success("Analyzing your energy consumption...");
-    setTimeout(() => navigate("/dashboard"), 1000);
+    setTimeout(() => {
+      setIsAnalyzing(false);
+      navigate("/dashboard");
+    }, 2000);
   };
 
   return (
@@ -246,10 +252,20 @@ const Upload = () => {
               <Button
                 onClick={handleAnalyze}
                 size="lg"
-                className="w-full mt-8 text-base"
+                className="w-full mt-8 text-base relative"
+                disabled={isAnalyzing}
               >
-                <Zap className="w-5 h-5 mr-2" />
-                Analyze My Energy
+                {isAnalyzing ? (
+                  <>
+                    <div className="w-5 h-5 mr-2 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Analyzing...
+                  </>
+                ) : (
+                  <>
+                    <Zap className="w-5 h-5 mr-2" />
+                    Analyze My Energy
+                  </>
+                )}
               </Button>
             </Card>
           </motion.div>

@@ -20,7 +20,7 @@ const Footer = () => {
             </Link>
           </div>
           <p className="text-sm text-muted-foreground">
-            © 2025 SmartSave. All rights reserved.
+            SmartSave © 2025 | Powered by CleanTech Vision
           </p>
         </div>
       </div>
